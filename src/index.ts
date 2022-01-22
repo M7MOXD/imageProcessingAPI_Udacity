@@ -11,7 +11,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // main route
-app.get('/', (req: express.Request, res: express.Response) => {
+app.get('/', (req: express.Request, res: express.Response): void => {
   res.send(
     'Welcome into the Image Processing API, To start add "/api" to your url and follow the instruction'
   );
