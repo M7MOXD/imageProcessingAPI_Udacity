@@ -12,13 +12,13 @@ const caching = async (
   req: express.Request,
   res: express.Response,
   next: any
-) => {
+): Promise<void> => {
   try {
     const queryFilename: unknown = req.query.filename;
     const queryWidth: unknown = req.query.width;
     const queryHeight: unknown = req.query.height;
     const cachedImg = path.resolve(
-      `./src/assets/thumb/${queryFilename}_${queryWidth}_${queryHeight}_thumb.jpg`
+      `./assets/thumb/${queryFilename}_${queryWidth}_${queryHeight}_thumb.jpg`
     );
     const image = fs.existsSync(cachedImg);
     if (image) {

@@ -12,12 +12,12 @@ const validator = async (
   req: express.Request,
   res: express.Response,
   next: any
-) => {
+): Promise<void> => {
   try {
     const queryFilename: unknown = req.query.filename;
     const queryWidth: unknown = req.query.width;
     const queryHeight: unknown = req.query.height;
-    const inputImage = path.resolve(`./src/assets/full/${queryFilename}.jpg`);
+    const inputImage = path.resolve(`./assets/full/${queryFilename}.jpg`);
     if (!queryFilename) {
       throw new Error(
         'Parameter filename is empty! Please enter your filename.'
